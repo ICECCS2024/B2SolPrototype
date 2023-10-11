@@ -1,0 +1,49 @@
+﻿<component_checksums>
+<base>
+<symbol name="NAME" value="Solidity_Types" />
+<symbol name="TYPE" value="0" />
+<symbol name="PARAM" />
+<symbol name="CONSTRAINTS" />
+<symbol name="SEES" />
+<symbol name="INCLUDES" />
+<symbol name="IMPORTS" />
+<symbol name="PROMOTES" />
+<symbol name="EXTENDS" />
+<symbol name="USES" />
+<symbol name="SETS" value="08a0a91a15c004d2adc4f3f8d737e9eb" />
+<symbol name="CONCRETE_VAR" />
+<symbol name="ABSTRACT_VAR" />
+<symbol name="CONCRETE_CONST" value="84d76b231d432963fad9de94574edebb" />
+<symbol name="ABSTRACT_CONST" />
+<symbol name="PROPERTIES" value="fa19f0e0351c74146361d7842083bf60" />
+<symbol name="INVARIANT" />
+<symbol name="VARIANT" />
+<symbol name="ASSERTIONS" />
+<symbol name="VALUES" />
+<operations>
+<operation>
+<symbol name="NAME" value="INITIALISATION" />
+<symbol name="COMPONENT" value="Solidity_Types" />
+<symbol name="PRECONDITION" />
+<symbol name="BODY" value="00000000000000000000000000000000" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+</operations>
+</base>
+<seen>
+</seen>
+<used>
+</used>
+<included>
+</included>
+<imported>
+</imported>
+<extended>
+</extended>
+<refined>
+</refined>
+</component_checksums>

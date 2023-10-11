@@ -1,0 +1,106 @@
+﻿<component_checksums>
+<base>
+<symbol name="NAME" value="depositedOver100" />
+<symbol name="TYPE" value="0" />
+<symbol name="PARAM" />
+<symbol name="CONSTRAINTS" />
+<symbol name="SEES" value="b232c0db95ac672de0aa85436abb6d11" />
+<symbol name="INCLUDES" />
+<symbol name="IMPORTS" />
+<symbol name="PROMOTES" />
+<symbol name="EXTENDS" />
+<symbol name="USES" />
+<symbol name="SETS" />
+<symbol name="CONCRETE_VAR" />
+<symbol name="ABSTRACT_VAR" value="f37dad3614de85538b7671129da562db" />
+<symbol name="CONCRETE_CONST" />
+<symbol name="ABSTRACT_CONST" />
+<symbol name="PROPERTIES" />
+<symbol name="INVARIANT" value="69c3b5174329c5082efbcafcb1e0017a" />
+<symbol name="VARIANT" />
+<symbol name="ASSERTIONS" />
+<symbol name="VALUES" />
+<operations>
+<operation>
+<symbol name="NAME" value="INITIALISATION" />
+<symbol name="COMPONENT" value="depositedOver100" />
+<symbol name="PRECONDITION" />
+<symbol name="BODY" value="014e62ffb439a80cf712c9ecd8f1c70a" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="set_depositedOver_100_abstract" />
+<symbol name="COMPONENT" value="depositedOver100" />
+<symbol name="PRECONDITION" value="2704b6b3d24ef4d3e2a91197347b233c" />
+<symbol name="BODY" value="bf652b7cf2befe43f5bb0c36811b5f4d" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="set_depositedOver_100" />
+<symbol name="COMPONENT" value="depositedOver100" />
+<symbol name="PRECONDITION" value="3cbcc5661ac19fa2f8189df9090ccee1" />
+<symbol name="BODY" value="571262e68a6ec95d85c2298eb0daaa80" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="get_depositedOver_100" />
+<symbol name="COMPONENT" value="depositedOver100" />
+<symbol name="PRECONDITION" value="468832b2e0f32c2a154e5fb4ece7fc0e" />
+<symbol name="BODY" value="0a4cc7a429fbf4a018f28b7ab958a1e4" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+</operations>
+</base>
+<seen>
+<base>
+<symbol name="NAME" value="Solidity_Types" />
+<symbol name="TYPE" value="1" />
+<symbol name="PARAM" />
+<symbol name="CONSTRAINTS" />
+<symbol name="SEES" />
+<symbol name="INCLUDES" />
+<symbol name="IMPORTS" />
+<symbol name="PROMOTES" />
+<symbol name="EXTENDS" />
+<symbol name="USES" />
+<symbol name="SETS" value="08a0a91a15c004d2adc4f3f8d737e9eb" />
+<symbol name="CONCRETE_VAR" />
+<symbol name="ABSTRACT_VAR" />
+<symbol name="CONCRETE_CONST" value="84d76b231d432963fad9de94574edebb" />
+<symbol name="ABSTRACT_CONST" />
+<symbol name="PROPERTIES" value="fa19f0e0351c74146361d7842083bf60" />
+<symbol name="INVARIANT" />
+<symbol name="VARIANT" />
+<symbol name="ASSERTIONS" />
+<symbol name="VALUES" />
+<operations>
+</operations>
+</base>
+</seen>
+<used>
+</used>
+<included>
+</included>
+<imported>
+</imported>
+<extended>
+</extended>
+<refined>
+</refined>
+</component_checksums>

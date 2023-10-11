@@ -1,0 +1,90 @@
+﻿THEORY ProofList IS
+  _f(1) & _f(2) & _f(10) & _f(45) & rewardTopDepositors.4,(_f(50) & _f(19) => _f(51));
+  _f(1) & _f(2) & _f(10) & _f(45) & rewardTopDepositors.3,(_f(46) & _f(13) => _f(49));
+  _f(1) & _f(2) & _f(10) & _f(45) & rewardTopDepositors.2,(_f(46) & _f(13) => _f(48));
+  _f(1) & _f(2) & _f(10) & _f(45) & rewardTopDepositors.1,(_f(46) & _f(13) => _f(47));
+  _f(1) & _f(2) & _f(10) & _f(38) & transferFrom.4,(_f(43) & _f(19) => _f(44));
+  _f(1) & _f(2) & _f(10) & _f(38) & transferFrom.3,(_f(39) & _f(13) => _f(42));
+  _f(1) & _f(2) & _f(10) & _f(38) & transferFrom.2,(_f(39) & _f(13) => _f(41));
+  _f(1) & _f(2) & _f(10) & _f(38) & transferFrom.1,(_f(39) & _f(13) => _f(40));
+  _f(1) & _f(2) & _f(10) & _f(35) & approve.2,(_f(36) & _f(13) => _f(37));
+  _f(1) & _f(2) & _f(10) & _f(35) & approve.1,(_f(36) & _f(13) => _f(14));
+  _f(1) & _f(2) & _f(10) & _f(30) & transferTo.2,(_f(33) & _f(19) => _f(34));
+  _f(1) & _f(2) & _f(10) & _f(30) & transferTo.1,(_f(31) & _f(13) => _f(32));
+  _f(1) & _f(2) & _f(10) & _f(24) & withdraw.4,(_f(28) & _f(19) => _f(29));
+  _f(1) & _f(2) & _f(10) & _f(24) & withdraw.3,(_f(25) & _f(13) => _f(27));
+  _f(1) & _f(2) & _f(10) & _f(24) & withdraw.2,(_f(25) & _f(13) => _f(26));
+  _f(1) & _f(2) & _f(10) & _f(24) & withdraw.1,(_f(25) & _f(13) => _f(14));
+  _f(1) & _f(2) & _f(10) & _f(11) & deposit.7,(_f(23) & _f(19) => _f(20));
+  _f(1) & _f(2) & _f(10) & _f(11) & deposit.6,(_f(17) & _f(21) => _f(22));
+  _f(1) & _f(2) & _f(10) & _f(11) & deposit.5,(_f(17) & _f(19) => _f(20));
+  _f(1) & _f(2) & _f(10) & _f(11) & deposit.4,(_f(17) & _f(18) => _f(14));
+  _f(1) & _f(2) & _f(10) & _f(11) & deposit.3,(_f(12) & _f(13) => _f(16));
+  _f(1) & _f(2) & _f(10) & _f(11) & deposit.2,(_f(12) & _f(13) => _f(15));
+  _f(1) & _f(2) & _f(10) & _f(11) & deposit.1,(_f(12) & _f(13) => _f(14));
+  _f(1) & _f(2) & Initialisation.3,(_f(3) & _f(8) => _f(9));
+  _f(1) & _f(2) & Initialisation.2,(_f(3) & _f(6) => _f(7));
+  _f(1) & _f(2) & Initialisation.1,(_f(3) & _f(4) => _f(5))
+END
+&
+THEORY Formulas IS
+  ("`Seen and used machines properties'" & USERS = (1..5)*{ADDRESS}-({2|->ADDRESS}\/{1|->ADDRESS}) & init_msg_sender: USERS & init_msg_value: INTEGER & 0<=init_msg_value & init_msg_value<=2147483647 & init_block_timestamp: INTEGER & 0<=init_block_timestamp & init_block_timestamp<=2147483647 & BYTES: FIN(INTEGER) & not(BYTES = {}) & (1..5)*{ADDRESS}: FIN(NATURAL*{ADDRESS}) & not((1..5)*{ADDRESS} = {}) & "`Component properties'" & threshold = 2);
+  ("`Included,imported and extended machines invariants'" & balanceOf: (1..5)*{ADDRESS} +-> NAT & dom(balanceOf) = (1..5)*{ADDRESS} & accountOf: (1..5)*{ADDRESS} +-> NAT & dom(accountOf) = (1..5)*{ADDRESS} & allowanceOf: (1..5)*{ADDRESS} +-> ((1..5)*{ADDRESS} --> NAT) & dom(allowanceOf) = (1..5)*{ADDRESS});
+  ("`Local hypotheses'" & balanceOf$0: (1..5)*{ADDRESS} +-> NAT & dom(balanceOf$0) = (1..5)*{ADDRESS} & allowanceOf$0: (1..5)*{ADDRESS} +-> ((1..5)*{ADDRESS} --> NAT) & dom(allowanceOf$0) = (1..5)*{ADDRESS} & (1..5)*{ADDRESS}*{0}: (1..5)*{ADDRESS} +-> NAT & dom((1..5)*{ADDRESS}*{0}) = (1..5)*{ADDRESS});
+  "`Check that the invariant (depositors <: ADDRESS) is established by the initialisation - ref 3.3'";
+  ({}: POW((1..5)*{ADDRESS}));
+  "`Check that the invariant (balanceOf(THIS)>=SIGMA(ct).(ct: dom(accountOf) | accountOf(ct))) is established by the initialisation - ref 3.3'";
+  (SIGMA(ct).(ct: dom((1..5)*{ADDRESS}*{0}) | ((1..5)*{ADDRESS}*{0})(ct))<=balanceOf$0(2|->ADDRESS));
+  "`Check that the invariant (card(depositors)<=threshold) is established by the initialisation - ref 3.3'";
+  (card({})<=threshold);
+  ("`Component invariant'" & depositors: POW((1..5)*{ADDRESS}) & manager: USERS & donated: BOOL & SIGMA(ct).(ct: dom(accountOf) | accountOf(ct))<=balanceOf(2|->ADDRESS) & card(depositors)<=threshold);
+  ("`deposit preconditions in this component'" & msg_sender: USERS & msg_value: INTEGER & 0<=msg_value & msg_value<=2147483647 & not(msg_value = 0));
+  ("`Local hypotheses'" & balanceOf(msg_sender)-msg_value: INTEGER & 0<=balanceOf(msg_sender)-msg_value & balanceOf(msg_sender)-msg_value<=2147483647 & accountOf(msg_sender)+msg_value: INTEGER & 0<=accountOf(msg_sender)+msg_value & accountOf(msg_sender)+msg_value<=2147483647 & balanceOf(2|->ADDRESS)+msg_value: INTEGER & 0<=balanceOf(2|->ADDRESS)+msg_value & balanceOf(2|->ADDRESS)+msg_value<=2147483647);
+  "`Check preconditions of called operation, or While loop construction, or Assert predicates'";
+  (msg_sender: (1..5)*{ADDRESS});
+  (not(2|->ADDRESS = msg_sender));
+  ({msg_sender|->accountOf(msg_sender)+msg_value}: (1..5)*{ADDRESS} +-> NAT);
+  ("`Local hypotheses'" & balanceOf(msg_sender)-msg_value: INTEGER & 0<=balanceOf(msg_sender)-msg_value & balanceOf(msg_sender)-msg_value<=2147483647 & accountOf(msg_sender)+msg_value: INTEGER & 0<=accountOf(msg_sender)+msg_value & accountOf(msg_sender)+msg_value<=2147483647 & balanceOf(2|->ADDRESS)+msg_value: INTEGER & 0<=balanceOf(2|->ADDRESS)+msg_value & balanceOf(2|->ADDRESS)+msg_value<=2147483647 & threshold<=accountOf(msg_sender)+msg_value & not(msg_sender: depositors) & card(depositors)+1<=threshold & balanceOf<+({msg_sender|->balanceOf(msg_sender)-msg_value}\/{2|->ADDRESS|->balanceOf(2|->ADDRESS)+msg_value}): (1..5)*{ADDRESS} +-> NAT & dom(balanceOf<+({msg_sender|->balanceOf(msg_sender)-msg_value}\/{2|->ADDRESS|->balanceOf(2|->ADDRESS)+msg_value})) = (1..5)*{ADDRESS} & accountOf<+{msg_sender|->accountOf(msg_sender)+msg_value}: (1..5)*{ADDRESS} +-> NAT & dom(accountOf<+{msg_sender|->accountOf(msg_sender)+msg_value}) = (1..5)*{ADDRESS});
+  "`Check that the invariant (depositors <: ADDRESS) is preserved by the operation - ref 3.4'";
+  "`Check that the invariant (balanceOf(THIS)>=SIGMA(ct).(ct: dom(accountOf) | accountOf(ct))) is preserved by the operation - ref 3.4'";
+  (SIGMA(ct).(ct: dom(accountOf<+{msg_sender|->accountOf(msg_sender)+msg_value}) | (accountOf<+{msg_sender|->accountOf(msg_sender)+msg_value})(ct))<=(balanceOf<+({msg_sender|->balanceOf(msg_sender)-msg_value}\/{2|->ADDRESS|->balanceOf(2|->ADDRESS)+msg_value}))(2|->ADDRESS));
+  "`Check that the invariant (card(depositors)<=threshold) is preserved by the operation - ref 3.4'";
+  (card(depositors\/{msg_sender})<=threshold);
+  ("`Local hypotheses'" & balanceOf(msg_sender)-msg_value: INTEGER & 0<=balanceOf(msg_sender)-msg_value & balanceOf(msg_sender)-msg_value<=2147483647 & accountOf(msg_sender)+msg_value: INTEGER & 0<=accountOf(msg_sender)+msg_value & accountOf(msg_sender)+msg_value<=2147483647 & balanceOf(2|->ADDRESS)+msg_value: INTEGER & 0<=balanceOf(2|->ADDRESS)+msg_value & balanceOf(2|->ADDRESS)+msg_value<=2147483647 & not(threshold<=accountOf(msg_sender)+msg_value & not(msg_sender: depositors) & card(depositors)+1<=threshold) & balanceOf<+({msg_sender|->balanceOf(msg_sender)-msg_value}\/{2|->ADDRESS|->balanceOf(2|->ADDRESS)+msg_value}): (1..5)*{ADDRESS} +-> NAT & dom(balanceOf<+({msg_sender|->balanceOf(msg_sender)-msg_value}\/{2|->ADDRESS|->balanceOf(2|->ADDRESS)+msg_value})) = (1..5)*{ADDRESS} & accountOf<+{msg_sender|->accountOf(msg_sender)+msg_value}: (1..5)*{ADDRESS} +-> NAT & dom(accountOf<+{msg_sender|->accountOf(msg_sender)+msg_value}) = (1..5)*{ADDRESS});
+  ("`withdraw preconditions in this component'" & msg_sender: USERS & amount: INTEGER & 0<=amount & amount<=2147483647 & not(amount = 0));
+  ("`Local hypotheses'" & amount<=accountOf(msg_sender) & balanceOf(msg_sender)+amount: INTEGER & 0<=balanceOf(msg_sender)+amount & balanceOf(msg_sender)+amount<=2147483647 & balanceOf(2|->ADDRESS)-amount: INTEGER & 0<=balanceOf(2|->ADDRESS)-amount & balanceOf(2|->ADDRESS)-amount<=2147483647);
+  (not(msg_sender = 2|->ADDRESS));
+  ({msg_sender|->accountOf(msg_sender)-amount}: (1..5)*{ADDRESS} +-> NAT);
+  ("`Local hypotheses'" & amount<=accountOf(msg_sender) & balanceOf(msg_sender)+amount: INTEGER & 0<=balanceOf(msg_sender)+amount & balanceOf(msg_sender)+amount<=2147483647 & balanceOf(2|->ADDRESS)-amount: INTEGER & 0<=balanceOf(2|->ADDRESS)-amount & balanceOf(2|->ADDRESS)-amount<=2147483647 & balanceOf<+({2|->ADDRESS|->balanceOf(2|->ADDRESS)-amount}\/{msg_sender|->balanceOf(msg_sender)+amount}): (1..5)*{ADDRESS} +-> NAT & dom(balanceOf<+({2|->ADDRESS|->balanceOf(2|->ADDRESS)-amount}\/{msg_sender|->balanceOf(msg_sender)+amount})) = (1..5)*{ADDRESS} & accountOf<+{msg_sender|->accountOf(msg_sender)-amount}: (1..5)*{ADDRESS} +-> NAT & dom(accountOf<+{msg_sender|->accountOf(msg_sender)-amount}) = (1..5)*{ADDRESS});
+  (SIGMA(ct).(ct: dom(accountOf<+{msg_sender|->accountOf(msg_sender)-amount}) | (accountOf<+{msg_sender|->accountOf(msg_sender)-amount})(ct))<=(balanceOf<+({2|->ADDRESS|->balanceOf(2|->ADDRESS)-amount}\/{msg_sender|->balanceOf(msg_sender)+amount}))(2|->ADDRESS));
+  ("`transferTo preconditions in this component'" & msg_sender: USERS & dst: USERS & amount: INTEGER & 0<=amount & amount<=2147483647 & not(amount = 0));
+  ("`Local hypotheses'" & amount+1<=accountOf(msg_sender) & not(msg_sender = dst) & accountOf(dst)+amount: INTEGER & 0<=accountOf(dst)+amount & accountOf(dst)+amount<=2147483647);
+  ({msg_sender|->accountOf(msg_sender)-amount}\/{dst|->accountOf(dst)+amount}: (1..5)*{ADDRESS} +-> NAT);
+  ("`Local hypotheses'" & amount+1<=accountOf(msg_sender) & not(msg_sender = dst) & accountOf(dst)+amount: INTEGER & 0<=accountOf(dst)+amount & accountOf(dst)+amount<=2147483647 & accountOf<+({msg_sender|->accountOf(msg_sender)-amount}\/{dst|->accountOf(dst)+amount}): (1..5)*{ADDRESS} +-> NAT & dom(accountOf<+({msg_sender|->accountOf(msg_sender)-amount}\/{dst|->accountOf(dst)+amount})) = (1..5)*{ADDRESS});
+  (SIGMA(ct).(ct: dom(accountOf<+({msg_sender|->accountOf(msg_sender)-amount}\/{dst|->accountOf(dst)+amount})) | (accountOf<+({msg_sender|->accountOf(msg_sender)-amount}\/{dst|->accountOf(dst)+amount}))(ct))<=balanceOf(2|->ADDRESS));
+  ("`approve preconditions in this component'" & msg_sender: USERS & dst: USERS & amount: INTEGER & 0<=amount & amount<=2147483647 & not(amount = 0));
+  ("`Local hypotheses'" & not(dst = msg_sender));
+  ({dst|->amount}: (1..5)*{ADDRESS} +-> NAT);
+  ("`transferFrom preconditions in this component'" & msg_sender: USERS & sender: USERS & recipient: USERS & amount: INTEGER & 0<=amount & amount<=2147483647 & not(amount = 0));
+  ("`Local hypotheses'" & not(sender = recipient) & amount<=allowanceOf(sender)(msg_sender) & amount<=accountOf(sender) & accountOf(recipient)+amount: INTEGER & 0<=accountOf(recipient)+amount & accountOf(recipient)+amount<=2147483647 & allowanceOf(sender)(msg_sender)-amount: INTEGER & 0<=allowanceOf(sender)(msg_sender)-amount & allowanceOf(sender)(msg_sender)-amount<=2147483647);
+  ({recipient|->accountOf(recipient)+amount}\/{sender|->accountOf(sender)-amount}: (1..5)*{ADDRESS} +-> NAT);
+  (sender: (1..5)*{ADDRESS});
+  ({msg_sender|->allowanceOf(sender)(msg_sender)-amount}: (1..5)*{ADDRESS} +-> NAT);
+  ("`Local hypotheses'" & not(sender = recipient) & amount<=allowanceOf(sender)(msg_sender) & amount<=accountOf(sender) & accountOf(recipient)+amount: INTEGER & 0<=accountOf(recipient)+amount & accountOf(recipient)+amount<=2147483647 & allowanceOf(sender)(msg_sender)-amount: INTEGER & 0<=allowanceOf(sender)(msg_sender)-amount & allowanceOf(sender)(msg_sender)-amount<=2147483647 & accountOf<+({recipient|->accountOf(recipient)+amount}\/{sender|->accountOf(sender)-amount}): (1..5)*{ADDRESS} +-> NAT & dom(accountOf<+({recipient|->accountOf(recipient)+amount}\/{sender|->accountOf(sender)-amount})) = (1..5)*{ADDRESS} & allowanceOf<+{sender|->(allowanceOf(sender)<+{msg_sender|->allowanceOf(sender)(msg_sender)-amount})}: (1..5)*{ADDRESS} +-> ((1..5)*{ADDRESS} --> NAT) & dom(allowanceOf<+{sender|->(allowanceOf(sender)<+{msg_sender|->allowanceOf(sender)(msg_sender)-amount})}) = (1..5)*{ADDRESS});
+  (SIGMA(ct).(ct: dom(accountOf<+({recipient|->accountOf(recipient)+amount}\/{sender|->accountOf(sender)-amount})) | (accountOf<+({recipient|->accountOf(recipient)+amount}\/{sender|->accountOf(sender)-amount}))(ct))<=balanceOf(2|->ADDRESS));
+  ("`rewardTopDepositors preconditions in this component'" & msg_sender: USERS & msg_value: INTEGER & 0<=msg_value & msg_value<=2147483647);
+  ("`Local hypotheses'" & msg_value = threshold & msg_sender = manager & card(depositors) = threshold & donated = FALSE & balanceOf(2|->ADDRESS)+msg_value: INTEGER & 0<=balanceOf(2|->ADDRESS)+msg_value & balanceOf(2|->ADDRESS)+msg_value<=2147483647 & balanceOf(manager)-msg_value: INTEGER & 0<=balanceOf(manager)-msg_value & balanceOf(manager)-msg_value<=2147483647 & !xx.(xx: depositors => accountOf(xx)+1: INTEGER & 0<=accountOf(xx)+1 & accountOf(xx)+1<=2147483647));
+  (manager: (1..5)*{ADDRESS});
+  (not(2|->ADDRESS = manager));
+  (%xx.(xx: depositors | accountOf(xx)+1): (1..5)*{ADDRESS} +-> NAT);
+  ("`Local hypotheses'" & msg_value = threshold & msg_sender = manager & card(depositors) = threshold & donated = FALSE & balanceOf(2|->ADDRESS)+msg_value: INTEGER & 0<=balanceOf(2|->ADDRESS)+msg_value & balanceOf(2|->ADDRESS)+msg_value<=2147483647 & balanceOf(manager)-msg_value: INTEGER & 0<=balanceOf(manager)-msg_value & balanceOf(manager)-msg_value<=2147483647 & !xx.(xx: depositors => accountOf(xx)+1: INTEGER & 0<=accountOf(xx)+1 & accountOf(xx)+1<=2147483647) & balanceOf<+({manager|->balanceOf(manager)-msg_value}\/{2|->ADDRESS|->balanceOf(2|->ADDRESS)+msg_value}): (1..5)*{ADDRESS} +-> NAT & dom(balanceOf<+({manager|->balanceOf(manager)-msg_value}\/{2|->ADDRESS|->balanceOf(2|->ADDRESS)+msg_value})) = (1..5)*{ADDRESS} & accountOf<+%xx.(xx: depositors | accountOf(xx)+1): (1..5)*{ADDRESS} +-> NAT & dom(accountOf<+%xx.(xx: depositors | accountOf(xx)+1)) = (1..5)*{ADDRESS});
+  (SIGMA(ct).(ct: dom(accountOf<+%xx.(xx: depositors | accountOf(xx)+1)) | (accountOf<+%xx.(xx: depositors | accountOf(xx)+1))(ct))<=(balanceOf<+({manager|->balanceOf(manager)-msg_value}\/{2|->ADDRESS|->balanceOf(2|->ADDRESS)+msg_value}))(2|->ADDRESS))
+END
+&
+THEORY EnumerateX IS
+  ADDRESS == {addr_0,THIS,addr_1,addr_2,addr_3}
+END
+&
+THEORY Version IS
+  POVersion("svn")(CLT == "svn")(genOPO == KO, genDivergencePO == KO, local_op == OK)
+END

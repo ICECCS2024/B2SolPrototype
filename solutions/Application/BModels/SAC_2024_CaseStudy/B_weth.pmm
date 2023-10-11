@@ -1,0 +1,19 @@
+THEORY SIG IS
+    binhyp(f: T+->S) &
+    binhyp(g: T+->S) &   
+    U<:T & 
+    V<:T & 
+    dom(g)=V
+    =>
+     SIGMA(x).(x:U\/V | (f<+g)(x))==SIGMA(x).(x:U-V | f(x))+SIGMA(x).(x:V | g(x));
+     
+     
+     S<:T &
+     c: NAT 
+     =>
+     SIGMA(x).(x: S | (%xx.(xx: T | f(xx)+c))(x))==SIGMA(x).(x: S | f(x)+c);
+     
+     binhyp(S: FIN(T))
+     =>
+     SIGMA(x).(x: S | 1)==card(S)
+ END

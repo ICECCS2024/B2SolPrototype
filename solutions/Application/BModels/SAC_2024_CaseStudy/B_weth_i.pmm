@@ -1,0 +1,3 @@
+THEORY lambda IS
+        %x.(x: S | E)\/{s|->[x:=s]E}==%x.(x: S\/{s} | E)
+END

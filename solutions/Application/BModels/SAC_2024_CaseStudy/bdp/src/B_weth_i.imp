@@ -1,0 +1,172 @@
+﻿/* B_weth_i
+* Author: ASUS
+* Creation date: 8/31/2023
+*/
+
+IMPLEMENTATION B_weth_i
+REFINES B_weth
+SEES Solidity_Types
+IMPORTS Platform , account , allowance , depositedOver100
+    //PROMOTES addRandomAmountToBalance <-- used during model animation
+CONCRETE_CONSTANTS
+    threshold_i
+PROPERTIES
+    threshold_i : NAT & threshold_i = threshold
+VALUES
+    threshold_i = 2
+CONCRETE_VARIABLES manager_i , depositors_i , index , donated_i
+INVARIANT
+    // TYPING INV
+    index : NAT & index >= 0 &
+    donated_i : BOOL &
+    depositors_i : 0 .. threshold_i --> ADDRESS & //added {addr_0}
+    manager_i : USERS & manager_i = manager & donated_i = donated &
+    // GLUING INV
+    index = card ( depositors ) &
+    depositors_i [ 0 .. index - 1 ] = depositors &
+    ( 0 .. index - 1 ) <| depositors_i : 0 .. index - 1 >-> depositors & //modified depositors
+    depositedOver_100 ~ [ { TRUE } ] = depositors //modified
+
+INITIALISATION
+    index := 0 ;
+    depositors_i := ( 0 .. threshold_i ) * { addr_0 } ;
+    manager_i := init_msg_sender ;
+    donated_i := FALSE
+
+
+
+OPERATIONS
+    deposit ( msg_sender , msg_value ) =
+    BEGIN
+        VAR senderBalance , senderAccount , thisBalance IN
+            senderAccount <-- get_accountOf ( msg_sender ) ;
+            senderBalance <-- get_balanceOf ( msg_sender ) ;
+            thisBalance <-- get_balanceOf ( THIS ) ;
+
+            IF thisBalance + msg_value <= MAXINT & senderBalance - msg_value >= 0 &
+                senderAccount + msg_value <= MAXINT
+            THEN
+                set_accountOf ( msg_sender , senderAccount + msg_value ) ;
+                transfer ( msg_sender , THIS , msg_value ) ;
+                VAR distinct IN
+                    distinct <-- get_depositedOver_100 ( msg_sender ) ;
+                    IF senderAccount + msg_value >= threshold_i &  distinct = FALSE & index < threshold_i
+                    THEN
+                        depositors_i ( index ) := msg_sender ;
+                        set_depositedOver_100 ( msg_sender , TRUE ) ;
+                        index := index + 1
+                    END
+                END
+            END
+        END
+    END
+    ;
+
+    withdraw ( msg_sender , amount ) = //added thisBalance
+    BEGIN
+        VAR senderAccount , senderBalance , thisBalance IN
+            senderAccount <-- get_accountOf ( msg_sender ) ;
+            senderBalance <-- get_balanceOf ( msg_sender ) ;
+            thisBalance <-- get_balanceOf ( THIS ) ;
+            IF senderAccount >= amount & senderBalance + amount <= MAXINT & thisBalance >= amount
+            THEN
+                transfer ( THIS , msg_sender , amount ) ;
+                set_accountOf ( msg_sender , senderAccount - amount )
+            END
+        END
+    END
+    ;
+
+    transferTo ( msg_sender , dst , amount ) = //modified msg_sender /= dst
+    BEGIN
+        VAR senderBalance , receiverBalance IN
+            senderBalance <-- get_accountOf ( msg_sender ) ;
+            receiverBalance <-- get_accountOf ( dst ) ;
+            IF senderBalance > amount & receiverBalance + amount <= MAXINT & msg_sender /= dst
+            THEN
+                set_accountOf ( msg_sender , senderBalance - amount ) ;
+                set_accountOf ( dst , receiverBalance + amount )
+            END
+        END
+    END
+    ;
+
+    approve ( msg_sender , dst , amount ) =
+    BEGIN
+        IF msg_sender /= dst THEN
+            set_allowanceOf ( msg_sender , dst , amount )
+        END
+    END
+    ;
+    transferFrom ( msg_sender , sender , recipient , amount ) =
+    BEGIN
+        VAR senderBalance , recipientBalance , allowance IN
+            senderBalance <-- get_accountOf ( sender ) ;
+            recipientBalance <-- get_accountOf ( recipient ) ;
+            allowance <-- get_allowanceOf ( sender , msg_sender ) ;
+            IF sender /= recipient & allowance >= amount & senderBalance >= amount &
+                recipientBalance + amount <= MAXINT
+            THEN
+                set_accountOf ( sender , senderBalance - amount ) ;
+                set_accountOf ( recipient , recipientBalance + amount ) ;
+                set_allowanceOf ( sender , msg_sender , allowance - amount )
+            END
+        END
+    END
+    ;
+    rewardTopDepositors ( msg_sender , msg_value ) =
+    BEGIN
+        ////////
+        VAR thisBalance , managerBalance IN
+           thisBalance <-- get_balanceOf ( THIS ) ;
+            managerBalance <-- get_balanceOf ( manager_i ) ;
+            IF msg_value = threshold_i &
+                msg_sender = manager_i & //added
+                index = threshold_i &
+                donated_i = FALSE &
+                thisBalance + msg_value <= MAXINT &
+                managerBalance - msg_value >= 0
+            THEN
+                VAR jj , safe IN
+                    jj := 0 ;
+                    safe := TRUE ;
+                    WHILE jj < index & safe = TRUE DO
+                        VAR depositorBalance IN
+                            depositorBalance <-- get_accountOf ( depositors_i ( jj ) ) ;
+                            safe := bool ( depositorBalance + 1 <= MAXINT ) ;
+                            jj := jj + 1
+                        END
+                    INVARIANT 0 <= index & jj <= index & jj >= 0 &
+                        safe = bool ( ! xx . ( xx : ran ( ( 0 .. jj - 1 ) <| depositors_i ) => accountOf ( xx ) + 1 : NAT ) ) &
+                        donated_i = FALSE &
+                        ! xx . ( xx : ran ( ( 0 .. jj - 2 ) <| depositors_i ) => accountOf ( xx ) + 1 : NAT )
+                    VARIANT index - jj
+                    END ;
+
+                    IF ( safe = TRUE ) THEN
+                        transfer ( msg_sender , THIS , msg_value ) ;
+                        donated_i := TRUE ;
+                        VAR ii , depositorBalance IN
+                            ii := 0 ;
+                            WHILE ii < index DO
+                                depositorBalance <-- get_accountOf ( depositors_i ( ii ) ) ;
+                                set_accountOf ( depositors_i ( ii ) , depositorBalance + 1 ) ;
+                                ii := ii + 1
+                            INVARIANT ii = threshold_i or ii : dom ( depositors_i ) &
+                                accountOf =
+                                accountOf$0 <+ ( % xx . ( xx : depositors_i [ 0 .. ( ii - 1 ) ] | accountOf$0 ( xx ) + 1 ) ) &
+                                threshold_i = threshold &
+                                donated_i = TRUE & safe = TRUE &
+                                depositors_i [ 0 .. ( ii - 1 ) ] <: depositors &
+                                jj = index &
+                                ! xx . ( xx : ran ( ( ii + 1 .. index - 1 ) <| depositors_i ) => accountOf ( xx ) + 1 : NAT )
+                            VARIANT index - ii
+                            END
+                        END
+                    END
+                END
+            END
+        END
+    END
+
+END

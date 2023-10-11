@@ -1,0 +1,39 @@
+THEORY BalanceX IS
+account,5,0,0,5,0,0,0;
+Initialisation,1,0,0,1,0,0,0;
+Operation_set_accountOf,1,0,0,1,0,0,0;
+Operation_set_accountOf_abstract,1,0,0,1,0,0,0;
+WellDefinedness_get_accountOf,2,0,0,2,0,0,0
+END
+&
+THEORY ProofState IS
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0)
+END
+&
+THEORY MethodList IS
+pr;
+pr;
+pr;
+pr;
+pr
+END
+&
+THEORY PassList IS
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?
+END
+&
+THEORY Status IS
+account,5,0,5,0,0,0;
+Initialisation,1,0,1,0,0,0;
+Operation_set_accountOf,1,0,1,0,0,0;
+Operation_set_accountOf_abstract,1,0,1,0,0,0;
+WellDefinedness_get_accountOf,2,0,2,0,0,0
+END

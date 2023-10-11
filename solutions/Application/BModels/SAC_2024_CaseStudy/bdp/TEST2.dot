@@ -1,0 +1,18 @@
+digraph {
+B_weth_i [ label=" B_weth\nB_weth_i " shape= box ]
+Platform [ label=" Platform " shape= box ]
+Solidity_Types [ label=" Solidity_Types " shape= box ]
+account [ label=" account " shape= box ]
+allowance [ label=" allowance " shape= box ]
+depositedOver100 [ label=" depositedOver100 " shape= box ]
+
+"B_weth_i" -> "Solidity_Types" [style= dotted ]
+"B_weth_i" -> "Platform" []
+"B_weth_i" -> "account" []
+"B_weth_i" -> "allowance" []
+"B_weth_i" -> "depositedOver100" []
+"Platform" -> "Solidity_Types" [style= dotted ]
+"account" -> "Solidity_Types" [style= dotted ]
+"allowance" -> "Solidity_Types" [style= dotted ]
+"depositedOver100" -> "Solidity_Types" [style= dotted ]
+}

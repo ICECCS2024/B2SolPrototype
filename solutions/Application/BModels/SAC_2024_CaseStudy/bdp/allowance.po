@@ -1,0 +1,26 @@
+﻿THEORY ProofList IS
+  _f(1) & _f(2) & _f(7) & set_allowanceOf.2,(_f(4) => _f(9));
+  _f(1) & _f(2) & _f(7) & set_allowanceOf.1,(_f(4) => _f(8));
+  _f(1) & _f(2) & _f(3) & set_allowanceOf_abstract.2,(_f(4) => _f(6));
+  _f(1) & _f(2) & _f(3) & set_allowanceOf_abstract.1,(_f(4) => _f(5))
+END
+&
+THEORY Formulas IS
+  ("`Seen and used machines properties'" & USERS = (1..5)*{ADDRESS}-({2|->ADDRESS}\/{1|->ADDRESS}) & init_msg_sender: USERS & init_msg_value: INTEGER & 0<=init_msg_value & init_msg_value<=2147483647 & init_block_timestamp: INTEGER & 0<=init_block_timestamp & init_block_timestamp<=2147483647 & BYTES: FIN(INTEGER) & not(BYTES = {}) & (1..5)*{ADDRESS}: FIN(NATURAL*{ADDRESS}) & not((1..5)*{ADDRESS} = {}));
+  ("`Component invariant'" & allowanceOf: (1..5)*{ADDRESS} +-> ((1..5)*{ADDRESS} --> NAT) & dom(allowanceOf) = (1..5)*{ADDRESS});
+  ("`set_allowanceOf_abstract preconditions in this component'" & key: (1..5)*{ADDRESS} & updates: (1..5)*{ADDRESS} +-> NAT);
+  "`Check that the invariant (allowanceOf: ADDRESS --> (ADDRESS --> NAT)) is preserved by the operation - ref 3.4'";
+  (allowanceOf<+{key|->(allowanceOf(key)<+updates)}: (1..5)*{ADDRESS} +-> ((1..5)*{ADDRESS} --> NAT));
+  (dom(allowanceOf<+{key|->(allowanceOf(key)<+updates)}) = (1..5)*{ADDRESS});
+  ("`set_allowanceOf preconditions in this component'" & key1: (1..5)*{ADDRESS} & key2: (1..5)*{ADDRESS} & value: INTEGER & 0<=value & value<=2147483647);
+  (allowanceOf<+{key1|->(allowanceOf(key1)<+{key2|->value})}: (1..5)*{ADDRESS} +-> ((1..5)*{ADDRESS} --> NAT));
+  (dom(allowanceOf<+{key1|->(allowanceOf(key1)<+{key2|->value})}) = (1..5)*{ADDRESS})
+END
+&
+THEORY EnumerateX IS
+  ADDRESS == {addr_0,THIS,addr_1,addr_2,addr_3}
+END
+&
+THEORY Version IS
+  POVersion("svn")(CLT == "svn")(genOPO == KO, genDivergencePO == KO, local_op == OK)
+END

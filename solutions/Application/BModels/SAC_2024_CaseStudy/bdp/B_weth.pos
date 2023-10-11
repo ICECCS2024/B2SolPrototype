@@ -1,0 +1,358 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<Proof_Obligations xmlns="https://www.atelierb.eu/Formats/pog" version="1.0" author="pmi2Pos">
+<Proof_Obligation>
+<Tag>Initialisation</Tag>
+<Simple_Goal status="Proved">
+<Tag>Invariant is preserved</Tag>
+<Proof_State passList="Force(0),(?; 0)" proofState="Proved(Util)" methodList="dd &amp; ar(SimplifyRelDomXY.7,Goal) &amp; pr &amp; ar(s1.5,Goal) &amp; pp(rp.1 | 62)"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Invariant is preserved</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>Operation_deposit</Tag>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Invariant is preserved</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Invariant is preserved</Tag>
+<Proof_State passList="Force(0),(?; 0)" proofState="Proved(Util)" methodList="dd &amp; ar(SimplifyRelDomXY.15,Goal) &amp; ar(SimplifyRelDomXY.21,Goal) &amp; ah(accountOf&lt;+{msg_sender|->accountOf(msg_sender)+msg_value} = {msg_sender}&lt;&lt;|accountOf\/{msg_sender|->accountOf(msg_sender)+msg_value}) &amp; ar(b1.38,Once) &amp; dd &amp; eh(accountOf&lt;+{msg_sender|->accountOf(msg_sender)+msg_value},{msg_sender}&lt;&lt;|accountOf\/{msg_sender|->accountOf(msg_sender)+msg_value},Goal) &amp; ah(dom(accountOf)\/{msg_sender} = dom(accountOf)-{msg_sender}\/{msg_sender}) &amp; ss &amp; pr &amp; dd &amp; eh(dom(accountOf)\/{msg_sender},dom(accountOf)-{msg_sender}\/{msg_sender},Goal) &amp; ah(msg_sender/:dom(accountOf)-{msg_sender}) &amp; ss &amp; pr &amp; dd &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; ah(([ct:=msg_sender]({msg_sender}&lt;&lt;|accountOf\/{msg_sender|->accountOf(msg_sender)+msg_value})(ct)) = accountOf(msg_sender)+msg_value) &amp; ss &amp; pr &amp; dd &amp; eh(([ct:=msg_sender]({msg_sender}&lt;&lt;|accountOf\/{msg_sender|->accountOf(msg_sender)+msg_value})(ct)),accountOf(msg_sender)+msg_value,Goal) &amp; ah((balanceOf&lt;+{msg_sender|->balanceOf(msg_sender)-msg_value,THIS|->balanceOf(THIS)+msg_value})(THIS) = balanceOf(THIS)+msg_value) &amp; ah(THIS : dom({msg_sender|->balanceOf(msg_sender)-msg_value,THIS|->balanceOf(THIS)+msg_value})) &amp; ss &amp; pr &amp; dd &amp; ss &amp; pr &amp; dd &amp; eh((balanceOf&lt;+{msg_sender|->balanceOf(msg_sender)-msg_value,THIS|->balanceOf(THIS)+msg_value})(THIS),balanceOf(THIS)+msg_value,Goal) &amp; ah({msg_sender}&lt;&lt;|accountOf : dom(accountOf)-{msg_sender} +-> NATURAL) &amp; ah(NAT &lt;: NATURAL) &amp; pr &amp; pr &amp; dd &amp; ah(msg_sender/:dom({msg_sender}&lt;&lt;|accountOf)) &amp; pr &amp; dd &amp; ar(SimplifyIntSIGXY.4,Goal) &amp; ah(dom(accountOf) = dom(accountOf)-{msg_sender}\/{msg_sender}) &amp; ss &amp; pr &amp; dd &amp; eh(dom(accountOf),dom(accountOf)-{msg_sender}\/{msg_sender},Hyp(SIGMA(ct).(ct : dom(accountOf) | accountOf(ct))&lt;=balanceOf(THIS))) &amp; ah(msg_sender/:dom(accountOf)-{msg_sender}) &amp; dd &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Invariant is preserved</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Invariant is preserved</Tag>
+<Proof_State passList="Force(0),(?; 0)" proofState="Proved(Util)" methodList="dd &amp; ar(SimplifyRelDomXY.15,Goal) &amp; ar(SimplifyRelDomXY.21,Goal) &amp; ah(accountOf&lt;+{msg_sender|->accountOf(msg_sender)+msg_value} = {msg_sender}&lt;&lt;|accountOf\/{msg_sender|->accountOf(msg_sender)+msg_value}) &amp; ar(b1.38,Once) &amp; dd &amp; eh(accountOf&lt;+{msg_sender|->accountOf(msg_sender)+msg_value},{msg_sender}&lt;&lt;|accountOf\/{msg_sender|->accountOf(msg_sender)+msg_value},Goal) &amp; ah(dom(accountOf)\/{msg_sender} = dom(accountOf)-{msg_sender}\/{msg_sender}) &amp; ss &amp; pr &amp; dd &amp; eh(dom(accountOf)\/{msg_sender},dom(accountOf)-{msg_sender}\/{msg_sender},Goal) &amp; ah(msg_sender/:dom(accountOf)-{msg_sender}) &amp; ss &amp; pr &amp; dd &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; ah(([ct:=msg_sender]({msg_sender}&lt;&lt;|accountOf\/{msg_sender|->accountOf(msg_sender)+msg_value})(ct)) = accountOf(msg_sender)+msg_value) &amp; ss &amp; pr &amp; dd &amp; eh(([ct:=msg_sender]({msg_sender}&lt;&lt;|accountOf\/{msg_sender|->accountOf(msg_sender)+msg_value})(ct)),accountOf(msg_sender)+msg_value,Goal) &amp; ah((balanceOf&lt;+{msg_sender|->balanceOf(msg_sender)-msg_value,THIS|->balanceOf(THIS)+msg_value})(THIS) = balanceOf(THIS)+msg_value) &amp; ah(THIS : dom({msg_sender|->balanceOf(msg_sender)-msg_value,THIS|->balanceOf(THIS)+msg_value})) &amp; ss &amp; pr &amp; dd &amp; ss &amp; pr &amp; dd &amp; eh((balanceOf&lt;+{msg_sender|->balanceOf(msg_sender)-msg_value,THIS|->balanceOf(THIS)+msg_value})(THIS),balanceOf(THIS)+msg_value,Goal) &amp; ah({msg_sender}&lt;&lt;|accountOf : dom(accountOf)-{msg_sender} +-> NATURAL) &amp; ah(NAT &lt;: NATURAL) &amp; pr &amp; pr &amp; dd &amp; ah(msg_sender/:dom({msg_sender}&lt;&lt;|accountOf)) &amp; pr &amp; dd &amp; ar(SimplifyIntSIGXY.4,Goal) &amp; ah(dom(accountOf) = dom(accountOf)-{msg_sender}\/{msg_sender}) &amp; ss &amp; pr &amp; dd &amp; eh(dom(accountOf),dom(accountOf)-{msg_sender}\/{msg_sender},Hyp(SIGMA(ct).(ct : dom(accountOf) | accountOf(ct))&lt;=balanceOf(THIS))) &amp; ah(msg_sender/:dom(accountOf)-{msg_sender}) &amp; dd &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>Operation_withdraw</Tag>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Invariant is preserved</Tag>
+<Proof_State passList="Force(0),(?; 0)" proofState="Proved(Util)" methodList="dd &amp; ar(SimplifyRelDomXY.15,Goal) &amp; ar(SimplifyRelDomXY.21,Goal) &amp; ah(accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount} = {msg_sender}&lt;&lt;|accountOf\/{msg_sender|->accountOf(msg_sender)-amount}) &amp; ar(b1.38,Once) &amp; dd &amp; eh(accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount},{msg_sender}&lt;&lt;|accountOf\/{msg_sender|->accountOf(msg_sender)-amount},Goal) &amp; ah(dom(accountOf)\/{msg_sender} = dom(accountOf)-{msg_sender}\/{msg_sender}) &amp; ss &amp; pr &amp; dd &amp; eh(dom(accountOf)\/{msg_sender},dom(accountOf)-{msg_sender}\/{msg_sender},Goal) &amp; ah(msg_sender/:dom(accountOf)-{msg_sender}) &amp; pr &amp; dd &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; ah(([ct:=msg_sender]({msg_sender}&lt;&lt;|accountOf\/{msg_sender|->accountOf(msg_sender)-amount})(ct)) = accountOf(msg_sender)-amount) &amp; ss &amp; pr &amp; dd &amp; eh(([ct:=msg_sender]({msg_sender}&lt;&lt;|accountOf\/{msg_sender|->accountOf(msg_sender)-amount})(ct)),accountOf(msg_sender)-amount,Goal) &amp; ah({msg_sender}&lt;&lt;|accountOf : dom(accountOf)-{msg_sender} +-> NATURAL) &amp; ah(NAT &lt;: NATURAL) &amp; pr &amp; pr &amp; dd &amp; ah(msg_sender/:dom({msg_sender}&lt;&lt;|accountOf)) &amp; pr &amp; dd &amp; ar(SimplifyIntSIGXY.4,Goal) &amp; ah((balanceOf&lt;+{THIS|->balanceOf(THIS)-amount,msg_sender|->balanceOf(msg_sender)+amount})(THIS) = balanceOf(THIS)-amount) &amp; ah(THIS : dom({THIS|->balanceOf(THIS)-amount,msg_sender|->balanceOf(msg_sender)+amount})) &amp; pr &amp; dd &amp; pr &amp; dd &amp; eh((balanceOf&lt;+{THIS|->balanceOf(THIS)-amount,msg_sender|->balanceOf(msg_sender)+amount})(THIS),balanceOf(THIS)-amount,Goal) &amp; ah(dom(accountOf) = dom(accountOf)-{msg_sender}\/{msg_sender}) &amp; pr &amp; dd &amp; eh(dom(accountOf),dom(accountOf)-{msg_sender}\/{msg_sender},Hyp(SIGMA(ct).(ct : dom(accountOf) | accountOf(ct))&lt;=balanceOf(THIS))) &amp; ah(msg_sender/:dom(accountOf)-{msg_sender}) &amp; dd &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; mp"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>Operation_transferTo</Tag>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Invariant is preserved</Tag>
+<Proof_State passList="Force(0),(?; 0)" proofState="Proved(Util)" methodList="dd &amp; ar(SimplifyRelDomXY.15,Goal) &amp; ar(SimplifyRelDomXY.19,Goal) &amp; ar(SimplifyRelDomXY.21,Goal) &amp; ah(accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount,dst|->accountOf(dst)+amount} = accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount}&lt;+{dst|->accountOf(dst)+amount}) &amp; ss &amp; pr &amp; dd &amp; eh(accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount,dst|->accountOf(dst)+amount},accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount}&lt;+{dst|->accountOf(dst)+amount},Goal) &amp; ah(accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount}&lt;+{dst|->accountOf(dst)+amount} = {dst}&lt;&lt;|(accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount})\/{dst|->accountOf(dst)+amount}) &amp; ar(b1.38,Once) &amp; dd &amp; eh(accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount}&lt;+{dst|->accountOf(dst)+amount},{dst}&lt;&lt;|(accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount})\/{dst|->accountOf(dst)+amount},Goal) &amp; ah(dom(accountOf)\/{msg_sender,dst} = dom(accountOf)-{dst}\/{dst}) &amp; ss &amp; pr &amp; dd &amp; eh(dom(accountOf)\/{msg_sender,dst},dom(accountOf)-{dst}\/{dst},Goal) &amp; ah(dst/:dom(accountOf)-{dst}) &amp; pr &amp; dd &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; ah(([ct:=dst]({dst}&lt;&lt;|(accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount})\/{dst|->accountOf(dst)+amount})(ct)) = accountOf(dst)+amount) &amp; ss &amp; pr &amp; dd &amp; eh(([ct:=dst]({dst}&lt;&lt;|(accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount})\/{dst|->accountOf(dst)+amount})(ct)),accountOf(dst)+amount,Goal) &amp; ah({dst}&lt;&lt;|(accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount}) : dom(accountOf)-{dst} +-> NATURAL) &amp; ah(NAT &lt;: NATURAL) &amp; pr &amp; dd &amp; ar(SimplifyRelDoaLongXY.1,Goal) &amp; ar(InFunctionXY.14,Once) &amp; pr &amp; pr &amp; dd &amp; ah(dst/:dom(accountOf)-{dst}) &amp; dd &amp; ar(SimplifyIntSIGXY.3,Goal) &amp; ar(SimplifyRelDoaLongXY.1,Goal) &amp; ah({dst}&lt;&lt;|{msg_sender|->accountOf(msg_sender)-amount} = {msg_sender|->accountOf(msg_sender)-amount}) &amp; ss &amp; pr &amp; dd &amp; eh({dst}&lt;&lt;|{msg_sender|->accountOf(msg_sender)-amount},{msg_sender|->accountOf(msg_sender)-amount},Goal) &amp; ah({dst}&lt;&lt;|accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount} = {msg_sender}&lt;&lt;|({dst}&lt;&lt;|accountOf)\/{msg_sender|->accountOf(msg_sender)-amount}) &amp; ar(b1.38,Once) &amp; dd &amp; eh({dst}&lt;&lt;|accountOf&lt;+{msg_sender|->accountOf(msg_sender)-amount},{msg_sender}&lt;&lt;|({dst}&lt;&lt;|accountOf)\/{msg_sender|->accountOf(msg_sender)-amount},Goal) &amp; ah(dom(accountOf)-{dst} = dom(accountOf)-{dst}-{msg_sender}\/{msg_sender}) &amp; ss &amp; pr &amp; dd &amp; eh(dom(accountOf)-{dst},dom(accountOf)-{dst}-{msg_sender}\/{msg_sender},Goal) &amp; ah(msg_sender/:dom(accountOf)-{dst}-{msg_sender}) &amp; pr &amp; dd &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; ah(([ct:=msg_sender]({msg_sender}&lt;&lt;|({dst}&lt;&lt;|accountOf)\/{msg_sender|->accountOf(msg_sender)-amount})(ct)) = accountOf(msg_sender)-amount) &amp; ss &amp; pr &amp; dd &amp; eh(([ct:=msg_sender]({msg_sender}&lt;&lt;|({dst}&lt;&lt;|accountOf)\/{msg_sender|->accountOf(msg_sender)-amount})(ct)),accountOf(msg_sender)-amount,Goal) &amp; ah({msg_sender}&lt;&lt;|({dst}&lt;&lt;|accountOf) : dom(accountOf)-{dst}-{msg_sender} +-> NATURAL) &amp; ah(NAT &lt;: NATURAL) &amp; pr &amp; dd &amp; pr &amp; dd &amp; ah(msg_sender/:dom(accountOf)-{dst}-{msg_sender}) &amp; dd &amp; ar(SimplifyRelDoaXY.16,Goal) &amp; ah({msg_sender,dst}&lt;&lt;|accountOf : dom(accountOf)-{dst}-{msg_sender} +-> NATURAL) &amp; ah(NAT &lt;: NATURAL) &amp; pr &amp; pr &amp; dd &amp; ah(msg_sender/:dom({msg_sender,dst}&lt;&lt;|accountOf)) &amp; ss &amp; pr &amp; dd &amp; ah(dom({msg_sender,dst}&lt;&lt;|accountOf) = dom(accountOf)-{dst}-{msg_sender}) &amp; ss &amp; pp(rp.0 | 62) &amp; dd &amp; ar(SimplifyIntSIGXY.3,Goal) &amp; ah(dom(accountOf) = dom(accountOf)-{dst}\/{dst}) &amp; ss &amp; pr &amp; dd &amp; eh(dom(accountOf),dom(accountOf)-{dst}\/{dst},Hyp(SIGMA(ct).(ct : dom(accountOf) | accountOf(ct))&lt;=balanceOf(THIS))) &amp; ah(dst/:dom(accountOf)-{dst}) &amp; dd &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; ah(([ct:=dst]accountOf(ct)) = accountOf(dst)) &amp; ss &amp; pr &amp; dd &amp; eh(([ct:=dst]accountOf(ct)),accountOf(dst),Goal) &amp; ah(dom(accountOf)-{dst} = dom(accountOf)-{dst}-{msg_sender}\/{msg_sender}) &amp; dd &amp; eh(dom(accountOf)-{dst},dom(accountOf)-{dst}-{msg_sender}\/{msg_sender},Goal) &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>Operation_approve</Tag>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>Operation_transferFrom</Tag>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Invariant is preserved</Tag>
+<Proof_State passList="Force(0),(?; 0)" proofState="Proved(Util)" methodList="dd &amp; ar(SimplifyRelDomXY.15,Goal) &amp; ah({recipient|->accountOf(recipient)+amount,sender|->accountOf(sender)-amount} = {recipient|->accountOf(recipient)+amount}&lt;+{sender|->accountOf(sender)-amount}) &amp; ss &amp; pr &amp; dd &amp; eh({recipient|->accountOf(recipient)+amount,sender|->accountOf(sender)-amount},{recipient|->accountOf(recipient)+amount}&lt;+{sender|->accountOf(sender)-amount},Goal) &amp; ar(SimplifyRelDomXY.15,Goal) &amp; ar(SimplifyRelDomXY.21,Goal) &amp; ah(accountOf&lt;+({recipient|->accountOf(recipient)+amount}&lt;+{sender|->accountOf(sender)-amount}) = accountOf&lt;+{recipient|->accountOf(recipient)+amount}&lt;+{sender|->accountOf(sender)-amount}) &amp; ss &amp; pr &amp; dd &amp; eh(accountOf&lt;+({recipient|->accountOf(recipient)+amount}&lt;+{sender|->accountOf(sender)-amount}),accountOf&lt;+{recipient|->accountOf(recipient)+amount}&lt;+{sender|->accountOf(sender)-amount},Goal) &amp; ah(accountOf&lt;+{recipient|->accountOf(recipient)+amount}&lt;+{sender|->accountOf(sender)-amount} = {sender}&lt;&lt;|(accountOf&lt;+{recipient|->accountOf(recipient)+amount})\/{sender|->accountOf(sender)-amount}) &amp; ar(b1.38,Once) &amp; dd &amp; eh(accountOf&lt;+{recipient|->accountOf(recipient)+amount}&lt;+{sender|->accountOf(sender)-amount},{sender}&lt;&lt;|(accountOf&lt;+{recipient|->accountOf(recipient)+amount})\/{sender|->accountOf(sender)-amount},Goal) &amp; ah(dom(accountOf)\/{recipient,sender} = dom(accountOf)-{sender}\/{sender}) &amp; ss &amp; pr &amp; dd &amp; eh(dom(accountOf)\/{recipient,sender},dom(accountOf)-{sender}\/{sender},Goal) &amp; ah(sender/:dom(accountOf)-{sender}) &amp; pr &amp; dd &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; ah(([ct:=sender]({sender}&lt;&lt;|(accountOf&lt;+{recipient|->accountOf(recipient)+amount})\/{sender|->accountOf(sender)-amount})(ct)) = accountOf(sender)-amount) &amp; ss &amp; pr &amp; dd &amp; eh(([ct:=sender]({sender}&lt;&lt;|(accountOf&lt;+{recipient|->accountOf(recipient)+amount})\/{sender|->accountOf(sender)-amount})(ct)),accountOf(sender)-amount,Goal) &amp; ar(SimplifyRelDoaLongXY.1,Goal) &amp; ah({sender}&lt;&lt;|{recipient|->accountOf(recipient)+amount} = {recipient|->accountOf(recipient)+amount}) &amp; ss &amp; pr &amp; dd &amp; eh({sender}&lt;&lt;|{recipient|->accountOf(recipient)+amount},{recipient|->accountOf(recipient)+amount},Goal) &amp; ah({sender}&lt;&lt;|accountOf&lt;+{recipient|->accountOf(recipient)+amount} : dom(accountOf)-{sender} +-> NATURAL) &amp; ah(NAT &lt;: NATURAL) &amp; pr &amp; dd &amp; pr &amp; dd &amp; ah(sender/:dom(accountOf)-{sender}) &amp; dd &amp; ah(dom({sender}&lt;&lt;|accountOf&lt;+{recipient|->accountOf(recipient)+amount}) = dom(accountOf)-{sender}) &amp; ss &amp; pr &amp; dd &amp; ar(SimplifyIntSIGXY.3,Goal) &amp; ah(accountOf&lt;+{recipient|->accountOf(recipient)+amount} = {recipient}&lt;&lt;|accountOf\/{recipient|->accountOf(recipient)+amount}) &amp; ar(b1.38,Once) &amp; dd &amp; ah({sender}&lt;&lt;|accountOf&lt;+{recipient|->accountOf(recipient)+amount} = {recipient}&lt;&lt;|({sender}&lt;&lt;|accountOf)\/{recipient|->accountOf(recipient)+amount}) &amp; ar(b1.38,Once) &amp; dd &amp; eh({sender}&lt;&lt;|accountOf&lt;+{recipient|->accountOf(recipient)+amount},{recipient}&lt;&lt;|({sender}&lt;&lt;|accountOf)\/{recipient|->accountOf(recipient)+amount},Goal) &amp; ah(dom(accountOf)-{sender} = dom(accountOf)-{sender}-{recipient}\/{recipient}) &amp; ss &amp; pr &amp; dd &amp; eh(dom(accountOf)-{sender},dom(accountOf)-{sender}-{recipient}\/{recipient},Goal) &amp; ah(recipient/:dom(accountOf)-{sender}-{recipient}) &amp; ss &amp; pr &amp; dd &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; ah(([ct:=recipient]({recipient}&lt;&lt;|({sender}&lt;&lt;|accountOf)\/{recipient|->accountOf(recipient)+amount})(ct)) = accountOf(recipient)+amount) &amp; ss &amp; pr &amp; dd &amp; eh(([ct:=recipient]({recipient}&lt;&lt;|({sender}&lt;&lt;|accountOf)\/{recipient|->accountOf(recipient)+amount})(ct)),accountOf(recipient)+amount,Goal) &amp; ah({recipient}&lt;&lt;|({sender}&lt;&lt;|accountOf) : dom(accountOf)-{sender}-{recipient} +-> NATURAL) &amp; ah(NAT &lt;: NATURAL) &amp; pr &amp; pr &amp; dd &amp; ah(dom({recipient}&lt;&lt;|({sender}&lt;&lt;|accountOf)) = dom(accountOf)-{sender}-{recipient}) &amp; ss &amp; pp(rp.0 | 62) &amp; dd &amp; ar(SimplifyIntSIGXY.3,Goal) &amp; ah(dom(accountOf) = dom(accountOf)-{sender}\/{sender}) &amp; ss &amp; pr &amp; dd &amp; eh(dom(accountOf),dom(accountOf)-{sender}\/{sender},Hyp(SIGMA(ct).(ct : dom(accountOf) | accountOf(ct))&lt;=balanceOf(THIS))) &amp; ah(sender/:dom(accountOf)-{sender}) &amp; dd &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; ah(dom(accountOf)-{sender} = dom(accountOf)-{sender}-{recipient}\/{recipient}) &amp; dd &amp; eh(dom(accountOf)-{sender},dom(accountOf)-{sender}-{recipient}\/{recipient},Goal) &amp; ar(SimplifyIntSIGXY.5,Goal) &amp; pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>Operation_rewardTopDepositors</Tag>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Precondition predicate</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Unproved">
+<Tag>Invariant is preserved</Tag>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinednessInvariant</Tag>
+<Simple_Goal status="Proved">
+<Tag>Invariant is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Invariant is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Invariant is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Invariant is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Unproved">
+<Tag>Invariant is well defined</Tag>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinedness_deposit</Tag>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Unproved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinedness_withdraw</Tag>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinedness_transferTo</Tag>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinedness_transferFrom</Tag>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+<Proof_Obligation>
+<Tag>WellDefinedness_rewardTopDepositors</Tag>
+<Simple_Goal status="Unproved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),(?; 0)" proofState="Unproved" methodList="?"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+<Simple_Goal status="Proved">
+<Tag>Operation is well defined</Tag>
+<Proof_State passList="Force(0),?" proofState="Proved(0)" methodList="pr"/>
+</Simple_Goal>
+</Proof_Obligation>
+</Proof_Obligations>

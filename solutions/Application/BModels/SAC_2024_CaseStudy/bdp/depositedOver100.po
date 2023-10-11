@@ -1,0 +1,31 @@
+﻿THEORY ProofList IS
+  _f(1) & _f(5) & _f(10) & set_depositedOver_100.2,(_f(7) => _f(12));
+  _f(1) & _f(5) & _f(10) & set_depositedOver_100.1,(_f(7) => _f(11));
+  _f(1) & _f(5) & _f(6) & set_depositedOver_100_abstract.2,(_f(7) => _f(9));
+  _f(1) & _f(5) & _f(6) & set_depositedOver_100_abstract.1,(_f(7) => _f(8));
+  _f(1) & Initialisation.2,(_f(2) => _f(4));
+  _f(1) & Initialisation.1,(_f(2) => _f(3))
+END
+&
+THEORY Formulas IS
+  ("`Seen and used machines properties'" & USERS = (1..5)*{ADDRESS}-({2|->ADDRESS}\/{1|->ADDRESS}) & init_msg_sender: USERS & init_msg_value: INTEGER & 0<=init_msg_value & init_msg_value<=2147483647 & init_block_timestamp: INTEGER & 0<=init_block_timestamp & init_block_timestamp<=2147483647 & BYTES: FIN(INTEGER) & not(BYTES = {}) & (1..5)*{ADDRESS}: FIN(NATURAL*{ADDRESS}) & not((1..5)*{ADDRESS} = {}));
+  "`Check that the invariant (depositedOver_100: ADDRESS --> BOOL) is established by the initialisation - ref 3.3'";
+  ((1..5)*{ADDRESS}*{FALSE}: (1..5)*{ADDRESS} +-> BOOL);
+  (dom((1..5)*{ADDRESS}*{FALSE}) = (1..5)*{ADDRESS});
+  ("`Component invariant'" & depositedOver_100: (1..5)*{ADDRESS} +-> BOOL & dom(depositedOver_100) = (1..5)*{ADDRESS});
+  ("`set_depositedOver_100_abstract preconditions in this component'" & updates: (1..5)*{ADDRESS} +-> BOOL);
+  "`Check that the invariant (depositedOver_100: ADDRESS --> BOOL) is preserved by the operation - ref 3.4'";
+  (depositedOver_100<+updates: (1..5)*{ADDRESS} +-> BOOL);
+  (dom(depositedOver_100<+updates) = (1..5)*{ADDRESS});
+  ("`set_depositedOver_100 preconditions in this component'" & key: (1..5)*{ADDRESS} & value: BOOL);
+  (depositedOver_100<+{key|->value}: (1..5)*{ADDRESS} +-> BOOL);
+  (dom(depositedOver_100<+{key|->value}) = (1..5)*{ADDRESS})
+END
+&
+THEORY EnumerateX IS
+  ADDRESS == {addr_0,THIS,addr_1,addr_2,addr_3}
+END
+&
+THEORY Version IS
+  POVersion("svn")(CLT == "svn")(genOPO == KO, genDivergencePO == KO, local_op == OK)
+END

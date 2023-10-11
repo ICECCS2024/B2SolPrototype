@@ -1,0 +1,1 @@
+﻿Flag(FileOn("B_weth.pmi.res")) & Set(toto | dom(accountOf)-{recipient}-{sender} = dom(accountOf)-{sender}-{recipient})

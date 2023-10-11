@@ -1,0 +1,139 @@
+﻿<component_checksums>
+<base>
+<symbol name="NAME" value="Platform" />
+<symbol name="TYPE" value="0" />
+<symbol name="PARAM" />
+<symbol name="CONSTRAINTS" />
+<symbol name="SEES" value="b232c0db95ac672de0aa85436abb6d11" />
+<symbol name="INCLUDES" />
+<symbol name="IMPORTS" />
+<symbol name="PROMOTES" />
+<symbol name="EXTENDS" />
+<symbol name="USES" />
+<symbol name="SETS" />
+<symbol name="CONCRETE_VAR" />
+<symbol name="ABSTRACT_VAR" value="4686122bfd9d9b50b008565f56281748" />
+<symbol name="CONCRETE_CONST" />
+<symbol name="ABSTRACT_CONST" />
+<symbol name="PROPERTIES" />
+<symbol name="INVARIANT" value="59b7934b9b4cc3b4dad404029b440ab7" />
+<symbol name="VARIANT" />
+<symbol name="ASSERTIONS" />
+<symbol name="VALUES" />
+<operations>
+<operation>
+<symbol name="NAME" value="INITIALISATION" />
+<symbol name="COMPONENT" value="Platform" />
+<symbol name="PRECONDITION" />
+<symbol name="BODY" value="660e3fe73cd04a14c7dfa437f2c25a66" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="addRandomAmountToBalance" />
+<symbol name="COMPONENT" value="Platform" />
+<symbol name="PRECONDITION" />
+<symbol name="BODY" value="4ded904b970bc54e29ae3e9758920a39" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="transfer" />
+<symbol name="COMPONENT" value="Platform" />
+<symbol name="PRECONDITION" value="7c3b3a446ae79ba5b2dccffdae1488d6" />
+<symbol name="BODY" value="117ac88eda3211044fabce77b5817b9d" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="transfer_abstract" />
+<symbol name="COMPONENT" value="Platform" />
+<symbol name="PRECONDITION" value="90ec232d4533881e4acc2dfc2af6df2a" />
+<symbol name="BODY" value="5d7b4bd3ce35921043a45a0563738350" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="get_balanceOf" />
+<symbol name="COMPONENT" value="Platform" />
+<symbol name="PRECONDITION" value="baa87822ed9c3f74a3c9e6575240c116" />
+<symbol name="BODY" value="36dd6e1635fb4b9e17703220a64abcef" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="ForceFeeding" />
+<symbol name="COMPONENT" value="Platform" />
+<symbol name="PRECONDITION" value="7833d1d2e3d9ffecbd4eea6ad56fe4df" />
+<symbol name="BODY" value="d401ff7dbcf5f0737014c99688059591" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+<operation>
+<symbol name="NAME" value="transfer_" />
+<symbol name="COMPONENT" value="Platform" />
+<symbol name="PRECONDITION" value="95338ab7994d16740e92d8e6b0588f0b" />
+<symbol name="BODY" value="1bc3af190d60b441cf599156b3e129c7" />
+<called>
+</called>
+<refined>
+</refined>
+</operation>
+
+</operations>
+</base>
+<seen>
+<base>
+<symbol name="NAME" value="Solidity_Types" />
+<symbol name="TYPE" value="1" />
+<symbol name="PARAM" />
+<symbol name="CONSTRAINTS" />
+<symbol name="SEES" />
+<symbol name="INCLUDES" />
+<symbol name="IMPORTS" />
+<symbol name="PROMOTES" />
+<symbol name="EXTENDS" />
+<symbol name="USES" />
+<symbol name="SETS" value="08a0a91a15c004d2adc4f3f8d737e9eb" />
+<symbol name="CONCRETE_VAR" />
+<symbol name="ABSTRACT_VAR" />
+<symbol name="CONCRETE_CONST" value="84d76b231d432963fad9de94574edebb" />
+<symbol name="ABSTRACT_CONST" />
+<symbol name="PROPERTIES" value="fa19f0e0351c74146361d7842083bf60" />
+<symbol name="INVARIANT" />
+<symbol name="VARIANT" />
+<symbol name="ASSERTIONS" />
+<symbol name="VALUES" />
+<operations>
+</operations>
+</base>
+</seen>
+<used>
+</used>
+<included>
+</included>
+<imported>
+</imported>
+<extended>
+</extended>
+<refined>
+</refined>
+</component_checksums>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<db_xml>
+    <atelierb version="3_7_ubuntu-cvs" />
+    <project decomp_dir="C:\Users\mammar_a\Desktop\TEST2\bdp\expand_src" old_decomp_dir="C:\Users\mammar_a\Desktop\TEST2\bdp\src">
+        <!-- Definition directory list -->
+        <definition_dir path="C:\Users\mammar_a\Desktop\TEST2" />
+        <!-- Proof mechanisms -->
+        <!-- Component file list -->
+        <component_file path="C:\Users\mammar_a\Desktop\TEST2" name="B_weth" suffix="mch" user="mammar_a">
+            <component name="B_weth" type="specification" />
+        </component_file>
+        <component_file path="C:\Users\mammar_a\Desktop\TEST2" name="B_weth_i" suffix="imp" user="mammar_a">
+            <component name="B_weth_i" type="implementation" />
+        </component_file>
+        <component_file path="C:\Users\mammar_a\Desktop\TEST2" name="Platform" suffix="mch" user="mammar_a">
+            <component name="Platform" type="specification" />
+        </component_file>
+        <component_file path="C:\Users\mammar_a\Desktop\TEST2" name="Solidity_Types" suffix="mch" user="mammar_a">
+            <component name="Solidity_Types" type="specification" />
+        </component_file>
+        <component_file path="C:\Users\mammar_a\Desktop\TEST2" name="account" suffix="mch" user="mammar_a">
+            <component name="account" type="specification" />
+        </component_file>
+        <component_file path="C:\Users\mammar_a\Desktop\TEST2" name="allowance" suffix="mch" user="mammar_a">
+            <component name="allowance" type="specification" />
+        </component_file>
+        <component_file path="C:\Users\mammar_a\Desktop\TEST2" name="depositedOver100" suffix="mch" user="mammar_a">
+            <component name="depositedOver100" type="specification" />
+        </component_file>
+    </project>
+</db_xml>

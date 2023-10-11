@@ -1,0 +1,56 @@
+THEORY BalanceX IS
+allowance,10,0,0,10,0,0,0;
+Operation_set_allowanceOf,1,0,0,1,0,0,0;
+Operation_set_allowanceOf_abstract,1,0,0,1,0,0,0;
+WellDefinedness_get_allowanceOf,4,0,0,4,0,0,0;
+WellDefinedness_set_allowanceOf,2,0,0,2,0,0,0;
+WellDefinedness_set_allowanceOf_abstract,2,0,0,2,0,0,0
+END
+&
+THEORY ProofState IS
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0);
+Proved(0)
+END
+&
+THEORY MethodList IS
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr;
+pr
+END
+&
+THEORY PassList IS
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?;
+Force(0),?
+END
+&
+THEORY Status IS
+allowance,10,0,10,0,0,0;
+Operation_set_allowanceOf,1,0,1,0,0,0;
+Operation_set_allowanceOf_abstract,1,0,1,0,0,0;
+WellDefinedness_get_allowanceOf,4,0,4,0,0,0;
+WellDefinedness_set_allowanceOf,2,0,2,0,0,0;
+WellDefinedness_set_allowanceOf_abstract,2,0,2,0,0,0
+END
