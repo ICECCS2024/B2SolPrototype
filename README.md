@@ -2,6 +2,8 @@
 
 The B2Sol project is a translation prototype tool designed to generate Solidity smart contracts from specific B models. This tool leverages Antlr4, Eclipse Java 8, and JetBrains MPS version 2020.3.6 to provide this functionality.
 
+The **B Project File** PDF and the **Solidity Generated Code** PDF contain the entire source code for the B project and the generated Solidity code.  
+
 ## Testing the Project
 
 ### Phase 1: Setting Up the Tool
